@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * Contains welcome_scott.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Render\Markup ;
+
+/**
+ * Implements hook_help().
+ */
+function welcome_scott_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the welcome_scott module.
+    case 'help.page.welcome_scott':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Create welcome message for role(s)') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+ 
+ /**
+ * Implements hook_user_login($account).
+ */
+
+function welcome_scott_user_login($account) {
+
+//  $message = \Drupal::config('mymodule.settings')->get('name_of_form_field');
+  $message = \Drupal::config('welcome_scott.welcomemsg')->get('welcome_message');
+
+  // Don't do anything if no text
+  if (! $message) return;
+
+  // This will be TRUE for this permission or Admin users
+  if ($account->hasPermission('see welcome message')) {
+    drupal_set_message($message);
+  }
+
+}
+
+
+/**
+ * @todo
+ *
+ * Remove custom permission on uninstall?
+ * 
+ */
+
+

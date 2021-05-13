@@ -1,0 +1,9 @@
+welcome_scott.welcome_msg:
+  path: '/admin/welcome-message'
+  defaults:
+    _form: '\Drupal\welcome_scott\Form\WelcomeMsg'
+    _title: 'WelcomeMsg'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

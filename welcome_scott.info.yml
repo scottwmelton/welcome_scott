@@ -1,0 +1,7 @@
+name: Welcome Scott
+type: module
+description: Welcome message by Scott
+core: 8.x
+package: Scott
+
+
