@@ -31,7 +31,6 @@ function welcome_scott_help($route_name, RouteMatchInterface $route_match) {
 
 function welcome_scott_user_login($account) {
 
-//  $message = \Drupal::config('mymodule.settings')->get('name_of_form_field');
   $message = \Drupal::config('welcome_scott.welcomemsg')->get('welcome_message');
 
   // Don't do anything if no text
